@@ -3,9 +3,59 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+	<script src="https://code.jquery.com/jquery-2.1.1.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<h1>Title</h1>
-	
+	<div class="container">
+
+	<div class="row">
+		<h1 id="gameTitle" class="col-lg-12 text-center"><span class="purple">Tic</span> <span class="green">Tac</span> <span class="purple">Toe!</span></h1>
+	</div>	
+
+	<div id="board" class="col-lg-8 col-lg-push-2">
+		<div class="row">
+			<div id="boxA" class="box col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
+			<div id="boxB" class="box col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
+			<div id="boxC" class="box col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
+		</div>
+
+		<div class="row">
+			<div id="boxD" class="box col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
+			<div id="boxE" class="box col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
+			<div id="boxF" class="box col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
+		</div>
+
+		<div class="row">
+			<div id="boxG" class="box col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
+			<div id="boxH" class="box col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
+			<div id="boxI" class="box col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
+		</div>
+
+		<div id="players" class="col-lg-12">
+			<div class="row">
+				<div id="playerX" class="purple col-lg-6 col-md-6 col-sm-6 col-xs-12"><h2>X Player One</h2></div>
+				<div id="playerO" class="green col-lg-5 col-md-5 col-sm-5 col-xs-12"><h2>O Player Two</h2></div>
+			</div>
+			<div class="row">
+				<div id="playerXname" class="playerInput col-lg-6 col-md-6 col-sm-6 col-xs-12">
+					<input id="xPlayerInput" type="text" placeholder="enter your name">
+					<button id="xPlayerSubmit">Submit</button>
+				</div>
+				<div id="playerOname" class="playerInput col-lg-5 col-md-5 col-sm-5 col-xs-12">
+					<input id="oPlayerInput" type="text" placeholder="enter your name">
+					<button id="oPlayerSubmit">Submit</button>
+				</div>
+			</div>
+			<div class="row playerName">
+				<div id="xDivName" class="playerName col-lg-6 col-md-6 col-sm-6 col-xs-12"><h3 id="xName" class="purple"></h3></div>
+				<div id="oDivName" class="playerName col-lg-5 col-md-5 col-sm-5 col-xs-12"><h3 id="oName" class="green"></h3></div>
+			</div>
+		</div><!-- end players div -->
+	 </div><!-- end board div -->
+	</div><!-- end container div -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script src="main.js"></script>
 </body>
 </html>
