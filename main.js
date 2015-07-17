@@ -35,31 +35,54 @@ var boxesArray = $('.box');
 for(var i = 0; i < boxesArray.length; i++){
 	$(boxesArray[i]).on('click', function(event){
 		console.log("box click event fired!");
+		console.log(event);
 		if(currentPlayer === "x"){
 			$(event.target).append('<h1 class="purple">' + currentPlayer + '</h1>');
 			currentPlayer = "o";
+			determineWinner();
 
 		} else if (currentPlayer === "o"){
 			$(event.target).append('<h1 class="green">' + currentPlayer + '</h1>');
 			currentPlayer = "x";
+			determineWinner();
 		};
 	});
 }
 
-
 // how does the program check for a winner?
 
 var determineWinner = function determineWinner(){
-	var boxA = $('#boxA');
-	var boxB = $('#boxB');
-	var boxC = $('#boxC');
+	var boxA = $('#boxA > h1').text();
+	var boxB = $('#boxB > h1').text();
+	var boxC = $('#boxC > h1').text();
+	var boxD = $('#boxD > h1').text();
+	var boxE = $('#boxE > h1').text();
+	var boxF = $('#boxF > h1').text();
+	var boxG = $('#boxG > h1').text();
+	var boxH = $('#boxH > h1').text();
+	var boxI = $('#boxI > h1').text();
 
-	if(boxA === "x" && boxB === "x" && boxC === "x"){
+	if (boxA === "x" && boxB === "x" && boxC === "x"){
 		console.log("Player X Wins!")
+	} else if (boxD === "x" && boxE === "x" && boxF === "x"){
+		console.log("Player X Wins!")
+	} else if (boxG === "x" && boxH === "x" && boxI === "x"){
+		console.log("Player X Wins!")
+	} else if (boxA === "x" && boxE === "x" && boxI === "x"){
+		console.log("Player X Wins!");
+	} else if (boxA === "x" && boxE === "x" && boxI === "x"){
+		console.log("Player X Wins!");
+
+	} else if (boxA === "o" && boxB === "o" && boxC === "o"){
+		console.log("Player O Wins!")
+	} else if (boxD === "o" && boxE === "o" && boxF === "o"){
+		console.log("Player O Wins!")
+	} else if (boxG === "o" && boxH === "o" && boxI === "o"){
+		console.log("Player O Wins!")
+	} else if (boxA === "o" && boxE === "o" && boxI === "o"){
+		console.log("Player O Wins!")
+	} else if (boxA === "o" && boxE === "o" && boxI === "o"){
+		console.log("Player O Wins!")
 	}
 }
-
-determineWinner();
-
-
 
