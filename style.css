@@ -23,6 +23,19 @@ body{
 	height: 170px;
 }
 
+.winner:after {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 5px;
+  background: #c00;
+  content: "";
+  width: 100%;
+  display: block;
+}
+
+
+
 h1 {
 	font-size: 100px;
 	width: 50%;

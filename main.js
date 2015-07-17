@@ -30,28 +30,50 @@ var currentPlayer = "x";
 
 var boxesArray = $('.box');
 
+var rowsArray = [
+		{ rowOne: [boxesArray[0], boxesArray[1], boxesArray[2]]},
+		{ rowTwo: [boxesArray[3], boxesArray[4], boxesArray[5]]},
+		{ rowThree: [boxesArray[6], boxesArray[7], boxesArray[8]]},
+	];
+
 // set up a way for when currentPlayer clicks on a div box it creates h1 
 // and sets the text to the currentPlayer value.
 for(var i = 0; i < boxesArray.length; i++){
-	$(boxesArray[i]).on('click', function(event){
+	$(boxesArray[i]).one('click', function(event){
 		console.log("box click event fired!");
-		console.log(event);
-		if(currentPlayer === "x"){
-			$(event.target).append('<h1 class="purple">' + currentPlayer + '</h1>');
-			currentPlayer = "o";
-			determineWinner();
+		//debugger
 
-		} else if (currentPlayer === "o"){
-			$(event.target).append('<h1 class="green">' + currentPlayer + '</h1>');
-			currentPlayer = "x";
-			determineWinner();
-		};
+		// create a way to check whether or not the clicked div already has an h1.
+		// if it does, maybe alert player to choose another box.  
+		// if it doesn't run all the code below.
+		// if ($(event.currentTarget).find('h1') !== [] ){
+		// 	alert("Pick another box");
+
+		// } else {
+
+			if (currentPlayer === "x"){
+				console.log(event);
+				console.log(event.currentTarget);
+				$(event.currentTarget).append('<h1 class="purple">' + currentPlayer + '</h1>');
+				// $(boxesArray[i]).off('click', event.currentTarget);
+				currentPlayer = "o";
+				determineWinner();
+
+			} else if (currentPlayer === "o"){
+				$(event.currentTarget).append('<h1 class="green">' + currentPlayer + '</h1>');
+				currentPlayer = "x";
+				determineWinner();
+			};
+		// }	
 	});
 }
 
 // how does the program check for a winner?
 
 var determineWinner = function determineWinner(){
+	var playerOneName = $('#xName').text();
+	var playerTwoName = $('#oName').text();
+
 	var boxA = $('#boxA > h1').text();
 	var boxB = $('#boxB > h1').text();
 	var boxC = $('#boxC > h1').text();
@@ -63,7 +85,7 @@ var determineWinner = function determineWinner(){
 	var boxI = $('#boxI > h1').text();
 
 	if (boxA === "x" && boxB === "x" && boxC === "x"){
-		console.log("Player X Wins!")
+		console.log(playerOneName +  " Wins!");
 	} else if (boxD === "x" && boxE === "x" && boxF === "x"){
 		console.log("Player X Wins!")
 	} else if (boxG === "x" && boxH === "x" && boxI === "x"){
@@ -72,9 +94,11 @@ var determineWinner = function determineWinner(){
 		console.log("Player X Wins!");
 	} else if (boxA === "x" && boxE === "x" && boxI === "x"){
 		console.log("Player X Wins!");
+	} else if (boxC === "x" && boxE === "x" && boxG === "x"){
+		console.log("Player X Wins!")
 
 	} else if (boxA === "o" && boxB === "o" && boxC === "o"){
-		console.log("Player O Wins!")
+		console.log(playerTwoName +  " Wins!");
 	} else if (boxD === "o" && boxE === "o" && boxF === "o"){
 		console.log("Player O Wins!")
 	} else if (boxG === "o" && boxH === "o" && boxI === "o"){
@@ -83,6 +107,15 @@ var determineWinner = function determineWinner(){
 		console.log("Player O Wins!")
 	} else if (boxA === "o" && boxE === "o" && boxI === "o"){
 		console.log("Player O Wins!")
+	} else if (boxC === "o" && boxE === "o" && boxG === "o"){
+		console.log("Player O Wins!")
 	}
+}
+
+var resetGame = function resetGame(){
+	for (var i = 0; i < boxesArray.length; i++){
+		$(boxesArray[i]).empty();
+	}
+
 }
 
