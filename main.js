@@ -2,7 +2,7 @@ console.log("main.js is linked!")
 
 var xSubmit = $('#xPlayerSubmit');
 
-xSubmit.on('click', function(){
+var setPlayerOneName = function setPlayerOneName(){
 	// get value of input and set h3 text to that value
 	// then hide the playerXname div
 	console.log("You clicked Player X Submit");
@@ -11,11 +11,13 @@ xSubmit.on('click', function(){
 	console.log(xInput);
 	var playerXname = $('#playerXname'); //div
 	playerXname.toggle();
-});
+};
+
+xSubmit.on('click', setPlayerOneName);
 
 var oSubmit = $('#oPlayerSubmit');
 
-oSubmit.on('click', function(){
+var setPlayerTwoName = function setPlayerTwoName(){
 	// get value of input and set h3 text to that value
 	// then hide the playerOname div
 	console.log("You clicked Player O Submit");
@@ -24,7 +26,9 @@ oSubmit.on('click', function(){
 	console.log(oInput);
 	var playerOname = $('#playerOname'); //div
 	playerOname.toggle();
-});
+};
+
+oSubmit.on('click', setPlayerTwoName);
 
 var currentPlayer = "x";
 
@@ -110,7 +114,7 @@ var determineWinner = function determineWinner(){
 
 	} else if (boxD === "x" && boxE === "x" && boxF === "x"){
 		console.log(playerOneName +  " Wins!");
-		$(rowsArray[1].rowTwo).find('h1').addClass('animated infinite tada');
+		$(rowsArray[1].rowTwo).find('h1').addClass('animated infinite tada');	
 		theModalWinnerText.text(playerOneName +  " Wins!");
 		xWins += 1;
 		$('#xWins').text("# Wins: " + xWins);
@@ -230,22 +234,16 @@ var determineWinner = function determineWinner(){
 
 	} else {
 		console.log("Draw!");  // need to figure out a way out of this if no one wins.
-		drawCounter += 1;
 		console.log(drawCounter);
-		var newDrawCounter = drawCounter;
-		return newDrawCounter;
+		drawCounter += 1;
+
+			if (drawCounter === 9){
+			console.log("The game is a tie!");
+			theModalWinnerText.text("The Game is Tied!");
+			showWinnerModal();
+		}
 	}
 }
-
-//var finalDrawCount = determineWinner();
-
-// var callDraw = function callDraw(){
-// 	if (newDrawCounter === 9){
-// 		alert("The game is a tie!");
-// 	}
-// }
-
-// callDraw();
 
 var resetGame = function resetGame(){
 	for (var i = 0; i < boxesArray.length; i++){
@@ -260,4 +258,22 @@ var resetGame = function resetGame(){
 
 var playAgain = $('#playAgain');
 playAgain.on('click', resetGame);
+
+var brandNewGame = function brandNewGame(){
+	drawCounter = 0;
+	xWins = 0;
+	oWins = 0;
+	$('#xPlayerInput').val('');
+	$('#oPlayerInput').val('');
+	$('#xWins').text('');
+	$('#oWins').text('');
+	resetGame();
+	setPlayerOneName();
+	setPlayerTwoName();
+}
+
+var newPlayerGame = $('#newPlayers');
+newPlayerGame.on('click', brandNewGame);
+
+
 

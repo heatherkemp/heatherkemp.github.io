@@ -72,8 +72,16 @@ h3 {
 	margin: 5px 0px;
 }
 
+h4 {
+	text-align: center;
+}
+
 p {
 	font-size: 16px;
+}
+
+button:hover {
+	opacity: 0.5;
 }
 
 #boxA, #boxD {
@@ -106,10 +114,12 @@ p {
 #playerOname {
 	display: block;
 	float: right;
+	width: 250px;
 }
 
 #playerO, #oDivName {
 	float: right;
+	width: 250px;
 }
 
 .playerName {
@@ -126,21 +136,21 @@ p {
 	background-color: rgba(0,0,0,0.5);
 }
 
-#modalContent{
+#modalContent {
 	position: relative;
 	margin: 0 auto;
 	background-color: #fff;
 	opacity: 0.88;
 	top: 200px;
 	width: 30%;
-	height: 20%;
+	height: 22%;
 	padding: 25px;
 	-webkit-box-shadow: 0px 6px 15px 12px rgba(50, 50, 50, 0.46);  
 	-moz-box-shadow:    0px 6px 15px 12px rgba(50, 50, 50, 0.46);
 	box-shadow:         0px 6px 15px 12px rgba(50, 50, 50, 0.46);
 }
 
-#modalBody{
+#modalBody {
 	position: relative;
 	width: 100%;
 	top: 10px;
@@ -150,6 +160,14 @@ p {
 #modalFooter {
 	position: relative;
 	top: 30px;
-	width: 78px;
+	width: 200px;
 	margin: 10px auto;
+}
+
+#playAgain {
+	margin: 0 10px 10px 0;
+}
+
+#newPlayers {
+	margin: 0 0 10px 10px;
 }
