@@ -5,6 +5,7 @@
 	<title>Document</title>
 	<script src="https://code.jquery.com/jquery-2.1.1.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="animate.css">
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -49,11 +50,28 @@
 				</div>
 			</div>
 			<div class="row playerName">
-				<div id="xDivName" class="playerName col-lg-6 col-md-6 col-sm-6 col-xs-12"><h3 id="xName" class="purple"></h3></div>
-				<div id="oDivName" class="playerName col-lg-5 col-md-5 col-sm-5 col-xs-12"><h3 id="oName" class="green"></h3></div>
+				<div id="xDivName" class="playerName col-lg-6 col-md-6 col-sm-6 col-xs-12"><h3 id="xName" class="purple"></h3>
+					<p id="xWins" class="purple"></p>
+				</div>
+				<div id="oDivName" class="playerName col-lg-5 col-md-5 col-sm-5 col-xs-12"><h3 id="oName" class="green"></h3>
+					<p id="oWins" class="green"></p>
+				</div>
 			</div>
 		</div><!-- end players div -->
 	 </div><!-- end board div -->
+
+	 <!-- Modal -->
+	<div id="modal">
+		<div id="modalContent">
+			<div id="modalBody">
+				<h3 id="winner">Player X Wins!</h3>
+			</div>
+			<div id="modalFooter">
+				<button id="playAgain">Play Again</button>
+			</div>
+		</div> <!-- end modal content div -->
+	</div> <!-- end modal div -->
+
 	</div><!-- end container div -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	<script src="main.js"></script>
