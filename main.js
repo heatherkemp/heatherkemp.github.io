@@ -251,6 +251,7 @@ var resetGame = function resetGame(){
 		$(boxesArray[i]).off();
 		theModal.toggle();
 		currentPlayer = "x";
+		drawCounter = 0;
 		//somehow reset the loop here
 	}
 	 startGame();
